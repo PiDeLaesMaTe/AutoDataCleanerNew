@@ -324,52 +324,7 @@ def one_hot_df(df):
     """
     return pd.get_dummies(df)
 
-"""
-def clean_na_series(series, na_cleaner_mode): 
-    
-    clean_nones function manipulates None/NA values in a given panda series according to cleaner_mode parameter
-        
-    :param series: the Panda Series in which the cleaning will be performed 
-    :param na_cleaner_mode: what cleaning technique to apply, 'na_cleaner_modes' for a list of all possibilities 
-    :returns: cleaned version of the passed Series
 
-    if na_cleaner_mode == 'remove row': 
-        return series.dropna()
-    elif na_cleaner_mode == 'mean':
-        mean = series.mean()
-        return series.fillna(mean)
-    elif na_cleaner_mode == 'mode':
-        mode = series.mode()[0]
-        return series.fillna(mode)
-    elif na_cleaner_mode == False: 
-        return series
-    else: 
-        return series.fillna(na_cleaner_mode)
-
-
-def clean_na_df(df, na_cleaner_mode, verbose=True): 
-
-    clean_na_df function cleans all columns in DataFrame as per given na_cleaner_mode
-    
-    :param df: input DataFrame
-    :param na_cleaner_mode: what technique to apply to clean na values 
-    :param verbose: print progress in terminal/cmd
-    :returns: cleaned Pandas DataFrame 
-    
-    stats = {}
-    for col in df.columns.to_list(): 
-        if df[col].isna().sum() > 0: 
-            stats[col + " NaN Values"] = df[col].isna().sum()
-            try:
-                df[col] = clean_na_series(df[col], na_cleaner_mode)
-            except: 
-                pass
-            print("  + could not find mean for column {}, will use mode instead to fill NaN values".format(col))
-            df[col] = clean_na_series(df[col], 'mode')
-    if verbose: 
-        print("  + cleaned the following NaN values: {}".format(stats))
-    return df
-"""
 def normalize_df(data,mea_var, exclude=[], verbose=True): 
     """
     normalize_df function performs normalization to all columns of dataframe excluding binary (1/0) columns 

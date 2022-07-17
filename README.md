@@ -2,8 +2,34 @@
 Cleans and preprocess the input variables in a Machine Learning model written in Python language. 
 
 
+ ## Function call: 
+ 
+
+
+clean_me(dataframe, 
+            detect_binary=True,
+            numeric_dtype=True,
+            decision_tree=True, 
+            one_hot=True, 
+            normalize=True,
+            datetime_columns=[],
+            remove_columns=[],
+            high_corr_elimination=True,
+            low_var_elimination=True,
+            measuring_variable=[],
+            variable_to_encode=[],
+            outlier_removal=True,
+            duplicated_var=True,
+            duplicated_rows_remove=True,
+            variables_uni=True,
+            clean=True,
+            verbose=True)
+            
+            
+          
+
+## Help command 
     
-    """
     clean_me function performs automatic dataset cleaning to Pandas DataFrame as per the settings parameters passed to this function
     
     :param dataframe: input Pandas DataFrame on which the cleaning will be performed 
